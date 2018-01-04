@@ -1,5 +1,6 @@
 node_modules/**/*# Logs
 logs
+playground
 *.log
 npm-debug.log*
 yarn-debug.log*
