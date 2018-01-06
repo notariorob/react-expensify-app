@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import moment from 'moment';
 
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
@@ -22,19 +23,19 @@ const store = configureStore();
 store.dispatch(addExpense({
   description: 'Water bill',
   amount: 300,
-  createdAt: 10
+  createdAt: moment().subtract(10, 'days').valueOf()
 }));
 
 store.dispatch(addExpense({
   description: 'Gas bill',
   amount: 250,
-  createdAt: 30
+  createdAt: moment().subtract(2, 'days').valueOf()
 }));
 
 store.dispatch(addExpense({
   description: 'Rent',
   amount: 1000000,
-  createdAt: 1
+  createdAt: moment().add(40, 'days').valueOf()
 }));
 
 store.dispatch(sortByDate());
