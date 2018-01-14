@@ -33,37 +33,50 @@ export class ExpenseListFilters extends React.Component {
 
   render() {
     return (
-      <div>
-        <input 
-          type="text" 
-          value={this.props.filters.text} 
-          onChange={this.onTextChange}
-        />
-        <select 
-          onChange={this.onSortChange}
-        >
-          <option value="date">Date</option>
-          <option value="amount">Amount</option>
-        </select>
-        <DateRangePicker
-          numberOfMonths={1}
-          isOutsideRange={() => false}
-          showClearDates={true}
-          startDateId=""
-          endDateId=""
-          startDate={this.props.filters.startDate}
-          endDate={this.props.filters.endDate}
-          onDatesChange={this.onDatesChange}
-          focusedInput={this.state.calendarFocused}
-          onFocusChange={this.onFocusChange}
-        />
+      <div className="content-container">
+        <div className="input-group">
+          <div className="input-group__item">
+            <input
+              type="text"
+              placeholder="Search expenses"
+              value={this.props.filters.text}
+              onChange={this.onTextChange}
+              className="text-input"
+            />
+          </div>
+          <div className="input-group__item">
+            <select
+              onChange={this.onSortChange}
+              className="select"
+            >
+              <option value="date">Date</option>
+              <option value="amount">Amount</option>
+            </select>
+          </div>
+          <div className="input-group__item">
+            <DateRangePicker
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+              showClearDates={true}
+              startDateId=""
+              endDateId=""
+              startDate={this.props.filters.startDate}
+              endDate={this.props.filters.endDate}
+              onDatesChange={this.onDatesChange}
+              focusedInput={this.state.calendarFocused}
+              onFocusChange={this.onFocusChange}
+            />
+          </div>
+        </div>
+
+
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  filters: state.filters 
+  filters: state.filters
 });
 
 const mapDispatchToProps = (dispatch) => ({

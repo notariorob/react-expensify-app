@@ -6,6 +6,7 @@ import AppRouter, { history } from './routers/AppRouter';
 import { login, logout } from './actions/auth';
 import configureStore from './store/configureStore';
 import getVisibleExpenses from './selectors/expenses';
+import LoadingPage from './components/LoadingPage';
 import { startSetExpenses } from './actions/expenses';
 import { firebase } from './firebase/firebase'
 
@@ -34,7 +35,7 @@ const renderApp = () => {
 }
 
 ReactDOM.render(
-  <p>Loading...</p>,
+  <LoadingPage />,
   document.getElementById('app')
 );
 
